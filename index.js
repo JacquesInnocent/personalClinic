@@ -5,10 +5,9 @@ const
   express = require('express'),
   bodyParser = require('body-parser'),
   app = express().use(bodyParser.json()); // creates express http server
-  PAGE_ACCESS_TOKEN="EAAWXIfUkKA0BAIxDReDgt2ZBMCY4gi73pPq8kYkxIZCXlUpkzEPRGI1HaLaFMGyGMRZBCAYS2U5oGxEpDkva0XbEVwh5CintUGiry1i8rW1u5VBZBG4B72aQN65jnl3PI0QWUylzlmIZAcvHJpb61ZA0YBvBi1mi3Ne3hYyPPw1dPZAS0IzEQUU"
+  PAGE_ACCESS_TOKEN = "<PAGE_ACCESS_TOKEN>"
 // Sets server port and logs message on success
 app.listen(process.env.PORT || 1337, () => console.log('webhook is listening'));
-//
 // Creates the endpoint for our webhook
 app.post('/webhook', (req, res) => {
 
@@ -20,6 +19,7 @@ app.post('/webhook', (req, res) => {
     // Iterates over each entry - there may be multiple if batched
     body.entry.forEach(function (entry) {
 
+//
   // Gets the body of the webhook event
   let webhook_event = entry.messaging[0];
   console.log(webhook_event);
@@ -58,7 +58,7 @@ app.post('/webhook', (req, res) => {
 app.get('/webhook', (req, res) => {
 
   // Your verify token. Should be a random string.
-  let VERIFY_TOKEN = "verifymeasap"
+  let VERIFY_TOKEN = "<verifymeasap>"
 
   // Parse the query params
   let mode = req.query['hub.mode'];
